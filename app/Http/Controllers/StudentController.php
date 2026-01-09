@@ -25,14 +25,21 @@ class StudentController extends Controller
         return view('website.student.manage', ['students' => Student::all()]);
     }
 
-    public function edit()
+    public function edit($id)
     {
-        return view('website.student.edit');
+        return view('website.student.edit', ['student' => Student::find($id)]);
     }
 
-    public function update()
+    public function update(Request $request, $id)
     {
+        Student::updateStudent($request, $id);
+        return redirect('/student/manage')->with('message', 'Student Update Successfully.');
+    }
 
+    public function delete($id)
+    {
+        Student::deleteStudent($id);
+        return redirect('/student/manage')->with('message', 'Student Update Successfully.');
     }
 
 

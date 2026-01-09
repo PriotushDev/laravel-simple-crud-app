@@ -36,8 +36,8 @@
                             <td>{{$student->mobile}}</td>
                             <td>{{$student->blood_group}}</td>
                             <td>
-                                <a href="{{route('student.edit')}}" class="btn btn-sm btn-warning">Edit</a>
-                                <a class="btn btn-sm btn-danger">Delete</a>
+                                <a href="{{route('student.edit', ['id' => $student->id])}}" class="btn btn-sm btn-warning">Edit</a>
+                                <a href="{{route('student.delete', ['id' => $student->id])}}" class="btn btn-sm btn-danger">Delete</a>
                             </td>
                         </tr>
                         @endforeach

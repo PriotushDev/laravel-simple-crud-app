@@ -19,8 +19,28 @@ class Student extends Model
         self::$student->class =$request->class;
         self::$student->blood_group =$request->blood_group;
         self::$student->address =$request->address;
-
         self::$student->save();
+    }
+
+    public static function updateStudent($request, $id)
+    {
+        self::$student = Student::find($id);
+
+        self::$student->name = $request->name;
+        self::$student->father_name =$request->father_name;
+        self::$student->mother_name =$request->mother_name;
+        self::$student->mobile =$request->mobile;
+        self::$student->email =$request->email;
+        self::$student->class =$request->class;
+        self::$student->blood_group =$request->blood_group;
+        self::$student->address =$request->address;
+        self::$student->save();
+    }
+
+    public static function deleteStudent($id)
+    {
+        self::$student = Student::find($id);
+        self::$student->delete();
     }
 
 }
